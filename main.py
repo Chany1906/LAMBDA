@@ -1,2 +1,2 @@
 print('primera accion Fabrizio Chany')
-Print('Hola Alan Dagner Quenaya Yucra')
+print('Hola Alan Dagner Quenaya Yucra')
