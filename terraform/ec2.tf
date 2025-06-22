@@ -1,9 +1,9 @@
 resource "aws_instance" "consumer" {
-  ami           = "ami-0c55b159cbfafe1f0"  # Amazon Linux
+  ami           = "ami-020cba7c55df1f615"
   instance_type = "t2.micro"
-  key_name      = "my-key"  # crea uno desde AWS si no tienes
+  key_name      = "chany_cloud.pem"
 
   tags = {
-    Name = "EC2Consumer"
+    Name = "Prueba_Consumer"
   }
 }

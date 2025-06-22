@@ -1,3 +1,3 @@
 resource "aws_s3_bucket" "data_bucket" {
-  bucket = "my-data-bucket-simple"
+  bucket = "bucket_prueba_001"
 }

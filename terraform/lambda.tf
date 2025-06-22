@@ -19,8 +19,6 @@ resource "aws_lambda_function" "process_file" {
   source_code_hash = filebase64sha256("../lambda/lambda.zip")
 }
 
-#no olvidar editar esta parte
-
 resource "aws_lambda_permission" "allow_s3" {
   statement_id  = "AllowExecutionFromS3"
   action        = "lambda:InvokeFunction"
@@ -28,3 +26,4 @@ resource "aws_lambda_permission" "allow_s3" {
   principal     = "s3.amazonaws.com"
   source_arn    = aws_s3_bucket.data_bucket.arn
 }
+

@@ -1,0 +1,22 @@
+name: Deploy Infra
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Init
+        run: terraform -chdir=terraform init
+
+      - name: Apply
+        run: terraform -chdir=terraform apply -auto-approve
