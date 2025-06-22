@@ -11,7 +11,7 @@ resource "aws_iam_role" "lambda_exec" {
 }
 
 resource "aws_lambda_function" "process_file" {
-  function_name = "process_file_lambda"
+  function_name = "process_file_lambda_v2"
   runtime = "python3.9"
   role = aws_iam_role.lambda_exec.arn
   handler = "handler.lambda_handler"
