@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
 module "lambda" {
   source            = "git::https://github.com/Chany1906/aws-lambda.git?ref=main"
   input_bucket_arn  = module.s3.input_bucket_arn
