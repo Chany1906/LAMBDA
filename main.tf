@@ -8,7 +8,6 @@ module "lambda" {
 module "s3" {
   source         = "git::https://github.com/Chany1906/aws_s3.git?ref=main"
   s3_bucket_name = "bucket-numero-002"
-  #lambda_arn     = module.lambda.lambda_arn
 }
 
 module "ec2" {
