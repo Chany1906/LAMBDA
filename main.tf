@@ -13,3 +13,5 @@ module "ec2" {
   source           = "git::https://github.com/Chany1906/aws_ec2.git?ref=main"
   output_bucket_arn = module.s3.output_bucket_arn
 }
+
+#cometario
