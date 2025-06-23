@@ -1,6 +1,6 @@
 module "s3" {
   source      = "git::https://github.com/Chany1906/aws_s3.git?ref=main"
-  lambda_arn  = module.lambda.lambda_arn
+  s3_bucket_name  = "bucket-prueba-001"
 }
 
 module "lambda" {
