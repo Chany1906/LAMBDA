@@ -1,0 +1,36 @@
+name: Orquestar Despliegue
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
+      - run: terraform init
+      - run: terraform apply -auto-approve
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      - uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'Chany1906',
+              repo: 'aws_s3',
+              workflow_id: 'deploy.yml',
+              ref: 'main'
+            });
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'Chany1906',
+              repo: 'aws-lambda',
+              workflow_id: 'deploy.yml',
+              ref: 'main'
+            });
+            await github.rest.actions.createWorkflowDispatch({
+              owner: 'Chany1906',
+              repo: 'aws_ec2',
+              workflow_id: 'deploy.yml',
+              ref: 'main'
+            });
