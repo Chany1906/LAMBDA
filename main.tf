@@ -7,7 +7,7 @@ resource "aws_lambda_function" "csv_processor" {
 }
 
 resource "aws_iam_role" "lambda_role" {
-  name = "rol_ejecucion_lambda"
+  name = "rol_ejecucion_lambda_${var.suffix}"
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [{
