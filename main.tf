@@ -1,5 +1,5 @@
 resource "aws_lambda_function" "csv_processor" {
-  function_name = "procesador-csv"
+  function_name = "procesador-csv-${var.suffix}"
   handler       = "lambda_function.lambda_handler"
   runtime       = "python3.9"
   role          = aws_iam_role.lambda_role.arn
@@ -43,9 +43,10 @@ resource "aws_iam_role_policy" "lambda_policy" {
 }
 
 resource "aws_dynamodb_table" "historial_ejecucion" {
-  name           = "HistorialEjecucion"
+  name           = "HistorialEjecucion-${var.suffix}"
   billing_mode   = "PAY_PER_REQUEST"
   hash_key       = "nombre_archivo"
+
   attribute {
     name = "nombre_archivo"
     type = "S"
