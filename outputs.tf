@@ -5,3 +5,8 @@
 #output "output_bucket_arn" {
 #  value = aws_s3_bucket.output_bucket.arn
 #}
+
+output "lambda_function_name" {
+  description = "Nombre de la función Lambda"
+  value       = aws_lambda_function.csv_processor.function_name
+}
